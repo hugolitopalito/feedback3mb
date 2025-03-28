@@ -1,17 +1,17 @@
 import iconStar from "./assets/icon-star.svg"
-
+import illustrationThankYou from "./assets/illustration-thank-you.svg"
 import { useState } from "react"
 
 export function App() {
-  const [notaAvaiacao, setNotaAvaliacao] = useState(0)
-  const[submited, setSubmited] = useState(0)
+  const [notaAvaliacao, setNotaAvaliacao] = useState(0)
+  const [submited, setSubmited] = useState(false)
 
   function handleMudarNotaAvalicao(nota) {
     setNotaAvaliacao(nota)
   }
 
-  function hadleSubmit(){
-    if (notaAvaiacao !==0){
+  function handleSubmit(){
+    if (notaAvaliacao !== 0){
       setSubmited(true)
       return
     }
@@ -20,7 +20,7 @@ export function App() {
   }
 
   return (
-    notaAvaiacao === 0 ? (<div className="bg-gradient-dark text-white mx-6 p-6 rounded-2xl font-overpass">
+    submited === false ? (<div className="bg-gradient-dark text-white mx-6 p-6 rounded-2xl font-overpass">
       <div className="bg-dark-blue w-fit p-4 rounded-full mb-4">
         <img src={iconStar} alt="icon star" />
       </div>
@@ -37,11 +37,17 @@ export function App() {
         <input type="button" value={5} className="bg-dark-blue w-10.5 h-10.5 rounded-full text-medium-grey text-sm font-bold focus:bg-medium-grey focus:text-white" onClick={() => handleMudarNotaAvalicao(5)} />
       </div>
 
-      <button onClick={hadleSubmit} className="bg-orange w-full uppercase tracking-1 font-bold rounded-3xl text-sm py-3">Submit</button>
+      <button onClick={handleSubmit} className="bg-orange w-full uppercase tracking-1 font-bold rounded-3xl text-sm py-3">Submit</button>
     </div>
     ) : (
       <div className="bg-gradient-dark text-white mx-6 p-6 rounded-2xl font-overpass">
-        <p>{notaAvaiacao}</p> 
+
+        <img className="mx-auto mb-6" src={illustrationThankYou} alt="illustration Thank You" />
+
+        <p className="text-orange bg-dark-blue w-fit mx-auto px-3 py-1.25 rounded-3xl mb-6">You selected {notaAvaliacao} out of 5</p>
+
+        <h1 className="text-2xl font-bold mb-2.5 text-center">Thank You!</h1>
+        <p className="text-sm text-light-grey leading-1 text-center">We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!</p>
     </div>
     ) 
   )
