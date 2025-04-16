@@ -18,7 +18,7 @@ export function CardInicial({setNotaAvaliacao, setSubmited, notaAvaliacao}) {
                 <img src={iconStar} alt="icon star" />
             </div>
 
-            <h1 className="test-2xl font-bold mb-2.5">How did we do?</h1>
+            <h1 className="text-2xl font-bold mb-2.5">How did we do?</h1>
 
             <p className="text-sm text-light-grey mb-6 leading-1">Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
 
